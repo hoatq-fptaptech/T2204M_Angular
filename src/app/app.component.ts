@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'T2204M-Angular';
+
+  classNames = [];
+  classStatus = [];
 }
