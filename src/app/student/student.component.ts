@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {IStudent} from "../interfaces/student.interface";
 
 @Component({
   selector:'app-student',
@@ -7,8 +8,5 @@ import {Component, Input} from "@angular/core";
 })
 export class StudentComponent {
   @Input()
-  studentName!: string;
-
-  age = 18;
-  phoneNumber = '0987654321';
+  data!: IStudent;
 }
