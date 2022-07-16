@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector:'app-student',
@@ -6,7 +6,9 @@ import {Component} from "@angular/core";
   templateUrl:'./student.component.html'
 })
 export class StudentComponent {
-  studentName = 'Trương Văn Nam';
+  @Input()
+  studentName!: string;
+
   age = 18;
   phoneNumber = '0987654321';
 }
