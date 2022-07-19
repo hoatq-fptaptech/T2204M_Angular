@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ICurrentweather} from "../interfaces/currentweather.interface";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-currentweather',
@@ -14,8 +14,12 @@ export class CurrentweatherComponent {
   }
 
   ngOnInit(){ // hàm này tự động chạy sau khi print html xong
-      const url = 'https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric';
-      this.http.get<ICurrentweather>(url)
+      const url = 'https://api.openweathermap.org/data/2.5/weather';
+      let params = new HttpParams();
+      params =  params.append('q','Hanoi');
+      params =  params.append('appid','09a71427c59d38d6a34f89b47d75975c');
+      params =  params.append('units','metric');
+      this.http.get<ICurrentweather>(url,{params: params})
         .subscribe(value=>{
           this.data = value;
         });
