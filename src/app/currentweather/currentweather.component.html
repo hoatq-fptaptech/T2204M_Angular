@@ -1,3 +1,5 @@
+<input type="text" [(ngModel)]="cityCode" placeholder="cityCode"/>
+<button type="button" (click)="changeCity()">Change City</button>
 <h1>Đây là thông tin thời tiết hôm nay:</h1>
 <div *ngIf="data">
   <h1>{{data.name+ ','+data.sys.country}}</h1>
