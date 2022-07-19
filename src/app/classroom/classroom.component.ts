@@ -1,13 +1,15 @@
-import {Component} from "@angular/core";
+import {Component,Input} from "@angular/core";
 import {IStudent} from "../interfaces/student.interface";
+import {IClassroom} from "../interfaces/classroom.interface";
 
 @Component({
   selector:'app-classroom',
   templateUrl:'./classroom.component.html'
 })
 export class ClassroomComponent {
-  className = 'T2204M';
-  classStatus = true;
+  @Input()
+  data!: IClassroom;
+
   studentNames = [
     'Hoàng Văn Nam',
     'Vũ Trưởng Thành'
@@ -32,9 +34,9 @@ export class ClassroomComponent {
     'DMS'
   ];
   changeName(){
-    this.className = 'T2203E';
+    this.data.className = 'T2203E';
   }
   changeStatus(){
-    this.classStatus = !this.classStatus;
+    this.data.classStatus = !this.data.classStatus;
   }
 }

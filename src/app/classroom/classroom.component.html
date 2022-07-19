@@ -1,12 +1,12 @@
-<input type="text" [(ngModel)]="className" placeholder="Class name.."/>
-<h1>Đây là danh sách sinh viên lớp {{className}}:</h1>
+<input type="text" [(ngModel)]="data.className" placeholder="Class name.."/>
+<h1>Đây là danh sách sinh viên lớp {{data.className}}:</h1>
 <button type="button" (click)="changeName()">Change Name</button>
 <app-student *ngFor="let sv of studentArray"
              [data]="sv">
 </app-student>
 <h2>Trạng thái hoạt động của lớp:
-  <span *ngIf="classStatus">Hoạt động</span>
-  <span *ngIf="!classStatus">Vô hiệu</span>
+  <span *ngIf="data.classStatus">Hoạt động</span>
+  <span *ngIf="!data.classStatus">Vô hiệu</span>
 </h2>
 <button type="button" (click)="changeStatus()">Chuyển trạng thái</button>
 
