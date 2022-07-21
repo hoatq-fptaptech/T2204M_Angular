@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {IForecast} from "../interfaces/forecast.interface";
 import {HttpClient,HttpParams} from "@angular/common/http";
 
@@ -7,20 +7,7 @@ import {HttpClient,HttpParams} from "@angular/common/http";
   templateUrl: './forecastweather.component.html'
 })
 export class ForecastweatherComponent {
-  data :IForecast | undefined;
+  @Input()
+  data!:IForecast | undefined;
 
-  constructor(private http: HttpClient) {
-  }
-
-  ngOnInit(){
-    const url = 'http://api.openweathermap.org/data/2.5/forecast';
-    let params = new HttpParams();
-    params = params.append("q",'Hanoi');
-    params = params.append("appid",'09a71427c59d38d6a34f89b47d75975c');
-    params = params.append("units",'metric');
-    this.http.get<IForecast>(url,{params:params})
-      .subscribe(value=>{
-        this.data = value;
-      })
-  }
 }

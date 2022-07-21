@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {ICurrentweather} from "../interfaces/currentweather.interface";
 import {HttpClient,HttpParams} from "@angular/common/http";
+import {IForecast} from "../interfaces/forecast.interface";
 
 @Component({
   selector: 'app-currentweather',
@@ -8,6 +9,7 @@ import {HttpClient,HttpParams} from "@angular/common/http";
 })
 export class CurrentweatherComponent {
     data: ICurrentweather | undefined;
+    foreacast: IForecast | undefined;
     cityCode = 'Hanoi';
     // tim cach lay du lieu tu api roi cho vao bien data
   constructor(private http: HttpClient) { //hàm này tự động chạy sau khi tạo component
@@ -27,5 +29,10 @@ export class CurrentweatherComponent {
       .subscribe(value=>{
         this.data = value;
       });
+    const url_forest = 'http://api.openweathermap.org/data/2.5/forecast';
+    this.http.get<IForecast>(url_forest,{params:params})
+      .subscribe(value=>{
+        this.foreacast = value;
+      })
   }
 }
