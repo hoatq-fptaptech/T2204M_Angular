@@ -18,7 +18,7 @@ export class ForecastweatherComponent {
     params = params.append("q",'Hanoi');
     params = params.append("appid",'09a71427c59d38d6a34f89b47d75975c');
     params = params.append("units",'metric');
-    this.http.get<IForecast>(url)
+    this.http.get<IForecast>(url,{params:params})
       .subscribe(value=>{
         this.data = value;
       })
