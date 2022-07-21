@@ -7,13 +7,15 @@ import {ClassroomComponent} from "./classroom/classroom.component";
 import {FormsModule} from "@angular/forms";
 import {CurrentweatherComponent} from "./currentweather/currentweather.component";
 import {HttpClientModule} from "@angular/common/http";
+import {ForecastweatherComponent} from "./forecastweather/forecastweather.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     ClassroomComponent,
-    CurrentweatherComponent
+    CurrentweatherComponent,
+    ForecastweatherComponent
   ],
   imports: [
     BrowserModule,FormsModule,
